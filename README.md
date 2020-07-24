@@ -1,10 +1,28 @@
 # ISSUE TRACKER
 
+Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend` 3명으로 진행한 프로젝트 입니다. 클린코드 그리고 쿼리 성능 최적화에 초점을 맞추어 개발을 진행했습니다.
+
+
+
+### Project link
+
 - https://github.com/codesquad-member-2020/issue-tracker-12
 
 
 
-## Study Keyword
+### Skills
+
+- Java, Spring, MySQL, JPA, Hibernate, AWS EC2, AWS RDS, AWS VPC, NginX, OAuth2, JWT, Git, Unit Test, QueryDSL
+
+
+
+### ERD
+
+<img width="979" alt="스크린샷 2020-06-24 오후 3 30 24" src="https://user-images.githubusercontent.com/58318041/85940404-18f19400-b957-11ea-8c97-db2f1fa9c450.png">
+
+
+
+### Study Keyword
 
 - [x] `JPQL`
 - [x] `fetch join`
@@ -22,118 +40,7 @@
 
 
 
-## ERD
-
-<img width="979" alt="스크린샷 2020-06-24 오후 3 30 24" src="https://user-images.githubusercontent.com/58318041/85940404-18f19400-b957-11ea-8c97-db2f1fa9c450.png">
-
-
-
-## Goal
-
-- Unit Test
-- JPA
-- DDD
-- 성능 최적화
-
-
-
-## Daily Log
-
-#### 0608 (월)
-
-- 호눅스 강의
-- 개발환경 설정
-- 팀원 단합회식
-
-#### 0609 (화)
-
-- 기획서 분석
-- OAuth 구현
-- JPA 성능 최적화 학습
-
-#### 0610 (수)
-
-- 기획서 분석
-- 도메인 모델링
-- ERD 작성
-- Graph QL 학습
-- 도메인 엔티티 개발
-- Mock data 입력
-
-#### 0611 (목)
-
-- 이슈 목록 화면 API 구현
-- 이슈, 사용자, 라벨, 마일스톤 DTO 생성
-
-#### 0612 (금)
-
-- 데모
-- 이슈 OPEN/CLOSE 필터 추가
-- 이슈 리스트 페이징 처리
-
-#### 0615(월)
-
-- 레이블 테이블 변경 (컬럼 추가)
-- 레이블 조회, 생성, 삭제, 수정 API 구현
-- API 기능서 작성
-
-#### 0616(화)
-
-- 이슈 생성 API 구현
-- 유저 목록 API 구현
-- 마일스톤 목록 API 구현
-- 이슈 상세 조회 API 구현
-- 이슈 제목 수정 API 구현
-- 이슈 내용 수정 API 구현
-- 이슈 OPEN/CLOSE API 구현
-
-#### 0617(수)
-
-- 현재 이슈에 Labels 변경 API
-- 현재 이슈에 Assignees 변경 API
-- 호눅스 알고리즘 강의
-- 백엔드 회식
-
-#### 0618(목)
-
-- 현재 이슈에 Milestone 변경 API
-- 코멘트 추가 API
-- 코멘트 제거 API
-- 코멘트 변경 API
-
-#### 0619(금)
-
-- JPA 강의 - 컬렉션 조회 쿼리 최적화
-- 데모 
-
-#### 0621(일)
-
-- 2주차 리뷰요청
-- JPA 강의
-
-#### 0622(월)
-
-- 호눅스 강의 - DevOps
-- Query DSL 학습
-- Query DSL 개발환경 설정
-
-#### 0623(화)
-
-- Query DSL 학습
-- 이슈 필터링 API
-- 이슈 조회 쿼리 최적화 진행
-- 마일스톤 API
-
-#### 0624(수)
-
-- 단위 테스트 작성
-
-#### 0625(목)
-
-- Github Action 배포 자동화
-- 데모
-
-## Issues
+### Issues
 
 1. `Child Entity: label`에서 `Parent Entity: issue`와 연관관계 테이블로 `issue`가 갖고있는 `label's f.k`를 제거 할 수 없는 문제
    - `label Entity`에서 `issue`에 접근하여 해당 `label`목록 삭제하여 진행
@@ -148,8 +55,8 @@
 
 
 
+### API 명세
 
-## API 명세
 - https://github.com/codesquad-member-2020/issue-tracker-12/issues/46
 
 | URL                               | Method | Description                      | Response Code |
