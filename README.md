@@ -1,10 +1,10 @@
 # ISSUE TRACKER
 
-Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`로 팀을 이루어 3주간 진행한 프로젝트 입니다. 클린코드 그리고 쿼리 성능 최적화에 초점을 맞추어 개발을 진행했습니다.
+Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`로 팀을 이루어 3주간 진행한 프로젝트 입니다. 객체 지향적 설계를 위해 `도메인 모델 패턴`으로 코드를 작성했습니다. `클린코드` 그리고 `쿼리 성능 최적화`에 초점을 맞추어 개발을 진행했습니다.
 
 <br>
 
-## 1. 프로젝트 구조
+## 1. 프로젝트 소개
 
 ### Project link
 
@@ -69,10 +69,18 @@ Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`
 
 
 
-### Blog Posting
+### Refactoring
 
-- [지연로딩과 조회 성능 최적화](https://wooody92.github.io/jpa/JPA-학습정리-6/)
-- [컬렉션 조회 성능 최적화](https://wooody92.github.io/jpa/JPA-학습정리-8/)
+- `JPA` 쿼리 성능 최적화에 대해 학습하고 정리 했습니다.
+
+  - [지연로딩과 조회 성능 최적화](https://wooody92.github.io/jpa/JPA-학습정리-6/)
+  - [컬렉션 조회 성능 최적화](https://wooody92.github.io/jpa/JPA-학습정리-8/)
+
+- 높은 품질의 코드를 작성하기 위해 학습한 내용을 적용하여 리팩토링 했습니다.
+
+  - 이슈 조회 시 발생하는 `N+1` 문제 : `fetch join` 및 `batch_fetch_size` 설정으로 쿼리 최적화 진행
+
+  - [이슈링크](https://github.com/codesquad-member-2020/issue-tracker-12/pull/64)
 
 
 
@@ -81,19 +89,13 @@ Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`
 1. `Child Entity: label`에서 `Parent Entity: issue`와 연관관계 테이블로 `issue`가 갖고있는 `label's f.k`를 제거 할 수 없는 문제
 
    - `label Entity`에서 `issue`에 접근하여 해당 `label`목록 삭제하여 진행
-   - [이슈 링크](https://github.com/codesquad-member-2020/issue-tracker-12/commit/91d6f578a9144e312b338f43082adfe8d16bb129)
+   - [이슈링크](https://github.com/codesquad-member-2020/issue-tracker-12/commit/91d6f578a9144e312b338f43082adfe8d16bb129)
 
 2. `이슈 목록` 화면에서 `issue status`, `author`, `label`, `milestone`, `comment` 등 복합하여 쿼리 요청 시 필터링 기능 구현에 대한 문제
 
    - `QueryDSL` 학습 후 필터 기능을 동적쿼리로 구현
 
-   - [이슈 링크](https://github.com/codesquad-member-2020/issue-tracker-12/issues/57)
-
-3. 이슈 조회 시 발생하는 `N+1` 문제
-
-   - `fetch join` 및 `batch_fetch_size` 설정으로 쿼리 최적화 진행
-
-   - [이슈 링크](https://github.com/codesquad-member-2020/issue-tracker-12/issues/63)
+   - [이슈링크](https://github.com/codesquad-member-2020/issue-tracker-12/issues/57)
 
 
 
