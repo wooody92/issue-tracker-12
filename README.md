@@ -1,8 +1,10 @@
 # ISSUE TRACKER
 
-Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend` 3명으로 진행한 프로젝트 입니다. 클린코드 그리고 쿼리 성능 최적화에 초점을 맞추어 개발을 진행했습니다.
+Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`로 팀을 이루어 3주간 진행한 프로젝트 입니다. 클린코드 그리고 쿼리 성능 최적화에 초점을 맞추어 개발을 진행했습니다.
 
 
+
+## 1. 프로젝트 구조
 
 ### Project link
 
@@ -12,46 +14,13 @@ Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`
 
 ### Skills
 
-- Java, Spring, MySQL, JPA, Hibernate, AWS EC2, AWS RDS, AWS VPC, NginX, OAuth2, JWT, Git, Unit Test, QueryDSL
+- `Java`, `Spring Boot`, `MySQL`, `JPA`, `Hibernate`, `AWS EC2`, `AWS RDS`, `AWS VPC`, `NginX`, `OAuth2`, `JWT`, `Git`, `JUnit5`, `QueryDSL`
 
 
 
 ### ERD
 
 <img width="979" alt="스크린샷 2020-06-24 오후 3 30 24" src="https://user-images.githubusercontent.com/58318041/85940404-18f19400-b957-11ea-8c97-db2f1fa9c450.png">
-
-
-
-### Study Keyword
-
-- [x] `JPQL`
-- [x] `fetch join`
-- [x] `Lazy Loading`과 `proxy 객체`
-- [x] `Entity Manager`
-- [x] `Enum`
-- [x] `@Enumerated(EnumType.STRING)`
-- [x] `Static Factory Method`
-- [x] `Patch vs Put`
-- [x] `Entity vs. Value Object`
-- [x] `Lazy Loading`과 `proxy 객체`
-- [x] `Query DSL` 동적쿼리 처리
-- [x] `Collection Query` 최적화
-- [x] `Unit test`
-
-
-
-### Issues
-
-1. `Child Entity: label`에서 `Parent Entity: issue`와 연관관계 테이블로 `issue`가 갖고있는 `label's f.k`를 제거 할 수 없는 문제
-   - `label Entity`에서 `issue`에 접근하여 해당 `label`목록 삭제하여 진행
-
-   - [참고 링크](https://www.it-swarm.dev/ko/java/jpa-및-해당-조인-테이블-행에서-manytomany-관계가있는-엔티티를-제거하는-방법은-무엇입니까/967305855/)
-
-2. VO? 
-
-- VO에서 p.k 필요한가? CRUD가 가능한가?
-- VO 내부에 선언된 속성(필드)의 모든 값들이 VO 객체마다 값이 같아야, 똑같은 객체라고 판별
-- https://medium.com/webeveloper/entity-vo-dto-666bc72614bb
 
 
 
@@ -86,3 +55,63 @@ Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`
 | /milestones/{milestone_id}/status | PUT    | 마일스톤 상태 변경 (OPEN/CLOSE)  | 200           |
 | /users                            | GET    | 유저 목록                        | 200           |
 
+
+
+-----
+
+## 2. 학습 내용
+
+### PR Review
+
+- [1주차 PR](https://github.com/codesquad-member-2020/issue-tracker-12/pull/30)
+
+- [2주차 PR](https://github.com/codesquad-member-2020/issue-tracker-12/pull/59)
+
+- [3주차 PR](https://github.com/codesquad-member-2020/issue-tracker-12/pull/71)
+
+
+
+### Blog Posting
+
+- [지연로딩과 조회 성능 최적화](https://wooody92.github.io/jpa/JPA-학습정리-6/)
+- [컬렉션 조회 성능 최적화](https://wooody92.github.io/jpa/JPA-학습정리-8/)
+
+
+
+### Issues
+
+1. `Child Entity: label`에서 `Parent Entity: issue`와 연관관계 테이블로 `issue`가 갖고있는 `label's f.k`를 제거 할 수 없는 문제
+
+   - `label Entity`에서 `issue`에 접근하여 해당 `label`목록 삭제하여 진행
+   - [이슈 링크](https://github.com/codesquad-member-2020/issue-tracker-12/commit/91d6f578a9144e312b338f43082adfe8d16bb129)
+
+2. `이슈 목록` 화면에서 `issue status`, `author`, `label`, `milestone`, `comment` 등 복합하여 쿼리 요청 시 필터링 기능 구현에 대한 문제
+
+   - `QueryDSL` 학습 후 필터 기능을 동적쿼리로 구현
+
+   - [이슈 링크](https://github.com/codesquad-member-2020/issue-tracker-12/issues/57)
+
+3. 이슈 조회 시 발생하는 `N+1` 문제
+
+   - `fetch join` 및 `batch_fetch_size` 설정으로 쿼리 최적화 진행
+
+   - [이슈 링크](https://github.com/codesquad-member-2020/issue-tracker-12/issues/63)
+
+
+
+### Study Keyword
+
+- [x] `DDD` 도메인 구조
+- [x] `JPQL`
+- [x] `fetch join`
+- [x] `Lazy Loading`과 `proxy 객체`
+- [x] `Entity Manager`
+- [x] `Enum`
+- [x] `@Enumerated(EnumType.STRING)`
+- [x] `Static Factory Method`
+- [x] `Patch vs Put`
+- [x] `Entity vs. Value Object`
+- [x] `Lazy Loading`과 `proxy 객체`
+- [x] `Query DSL` 동적쿼리 처리
+- [x] `Collection Query` 최적화
+- [x] `Unit test`
