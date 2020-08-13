@@ -2,7 +2,7 @@
 
 Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`로 팀을 이루어 3주간 진행한 프로젝트 입니다. 클린코드 그리고 쿼리 성능 최적화에 초점을 맞추어 개발을 진행했습니다.
 
-
+<br>
 
 ## 1. 프로젝트 구조
 
@@ -55,9 +55,7 @@ Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`
 | /milestones/{milestone_id}/status | PUT    | 마일스톤 상태 변경 (OPEN/CLOSE)  | 200           |
 | /users                            | GET    | 유저 목록                        | 200           |
 
-
-
------
+<br>
 
 ## 2. 학습 내용
 
