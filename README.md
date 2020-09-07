@@ -2,11 +2,11 @@
 
 ##### 2020.06.08 - 2020.06.25
 
-Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`로 팀을 이루어 3주간 진행한 프로젝트 입니다. 객체 지향적 설계를 위해 `도메인 모델 패턴`으로 코드를 작성했습니다. `클린코드` 그리고 `쿼리 성능 최적화`에 초점을 맞추어 개발을 진행했습니다.
+`GitHub`의 이슈관리 서비스 클론 프로젝트로, `Frontend & Backend`로 팀을 이루어 3주간 진행한 프로젝트 입니다. 백엔드는 혼자서 개발했기에 DB 테이블 설계부터 REST API 개발 그리고 AWS를 이용한 배포까지 모두 스스로 진행했습니다. 3주라는 짧은 시간이었지만 단순히 동작만 하는 기능구현에 만족하지 않고, 더 객체 지향적이고 클린한 코드를 작성을 위해 `DDD`에 대해 학습하고 적용했습니다.
 
 <br>
 
-## 1. 프로젝트 소개
+## # 프로젝트 소개
 
 ### Project link
 
@@ -59,7 +59,7 @@ Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`
 
 <br>
 
-## 2. 학습 내용
+## # 학습 내용
 
 ### PR Review
 
@@ -71,39 +71,38 @@ Github의 이슈관리 서비스 클론 프로젝트로,  `Frontend` & `Backend`
 
 
 
+### 기술적 고민
+
+1. `DDD(Domain Driven Design)`에 대해 학습하고 `Aggregate`의 개념을 적용하여 테이블을 설계했습니다. `Aggregation Root`에 해당하는 엔티티에 대해서만 `Repository`를 생성하고 엔티티 간의 연관관계를 이용하여 객체를 관리했습니다.
+2. 객체 지향적 설계를 위해 도메인 모델 패턴으로 코드를 작성했습니다. `Service` 계층은 단순히 엔티티에 필요한 요청을 위임하는 역할을 하고, 핵심 비즈니스 로직들은 엔티티 클래스에서 상태 값을 가지는 객체가 처리하도록 설계했습니다.
+3. `Issue` 엔티티 조회 시 연관관계로 발생할 수 있는 `N+1` 쿼리문제를 해결하기 위해 `JPA` 쿼리 성능 최적화에 대해 학습하고 적용했습니다. `fetch join`과 `batch fetch size`를 이용하여 기존에 N번 날리던 쿼리 요청을 1번으로 줄여 조회 성능을 개선했습니다.
+   - [지연로딩과 조회 성능 최적화](https://wooody92.github.io/jpa/JPA-학습정리-6/)
+   - [컬렉션 조회 성능 최적화](https://wooody92.github.io/jpa/JPA-학습정리-8/)
+
+
+
 ### Refactoring
 
-- `JPA` 쿼리 성능 최적화에 대해 학습하고 정리 했습니다.
-
-  - [지연로딩과 조회 성능 최적화](https://wooody92.github.io/jpa/JPA-학습정리-6/)
-  - [컬렉션 조회 성능 최적화](https://wooody92.github.io/jpa/JPA-학습정리-8/)
-
-- 높은 품질의 코드를 작성하기 위해 학습한 내용을 적용하여 리팩토링 했습니다.
-
-  - 이슈 조회 시 발생하는 `N+1` 문제 : `fetch join` 및 `batch_fetch_size` 설정으로 쿼리 최적화 진행
-
-  - [이슈링크](https://github.com/codesquad-member-2020/issue-tracker-12/pull/64)
+- [리팩토링 - 조회 성능 최적화 (`N+1 쿼리` 문제)](https://github.com/codesquad-member-2020/issue-tracker-12/pull/64)
 
 
 
 ### Issues
 
 1. `Child Entity: label`에서 `Parent Entity: issue`와 연관관계 테이블로 `issue`가 갖고있는 `label's f.k`를 제거 할 수 없는 문제
-
    - `label Entity`에서 `issue`에 접근하여 해당 `label`목록 삭제하여 진행
-   - [이슈링크](https://github.com/codesquad-member-2020/issue-tracker-12/commit/91d6f578a9144e312b338f43082adfe8d16bb129)
+   - [이슈링크 - f.k](https://github.com/codesquad-member-2020/issue-tracker-12/commit/91d6f578a9144e312b338f43082adfe8d16bb129)
 
-2. `이슈 목록` 화면에서 `issue status`, `author`, `label`, `milestone`, `comment` 등 복합하여 쿼리 요청 시 필터링 기능 구현에 대한 문제
-
-   - `QueryDSL` 학습 후 필터 기능을 동적쿼리로 구현
-
-   - [이슈링크](https://github.com/codesquad-member-2020/issue-tracker-12/issues/57)
+1. `이슈 목록` 화면에서 여러 파라미터(`작성자`, `라벨 유무`, `이슈 상태` 등)를 복합하여 이슈를 조회하는(필터링 기능) 쿼리 요청 기능 구현에 대한 문제
+   - 모든 경우의 수를 정적 쿼리로 처리할 수 없어서 `QueryDSL`을 학습하고 필터 기능을 동적쿼리로 구현
+   - [이슈링크 - QueryDSL](https://github.com/codesquad-member-2020/issue-tracker-12/issues/57)
 
 
 
 ### Study Keyword
 
 - [x] `DDD` 도메인 구조
+- [x] 도메인 모델 패턴
 - [x] `JPQL`
 - [x] `fetch join`
 - [x] `Lazy Loading`과 `proxy 객체`
